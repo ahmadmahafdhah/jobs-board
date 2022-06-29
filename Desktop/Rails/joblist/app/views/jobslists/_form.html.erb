@@ -1,0 +1,25 @@
+<%= form_with(model: jobslist) do |form| %>
+  <% if jobslist.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(jobslist.errors.count, "error") %> prohibited this jobslist from being saved:</h2>
+
+      <ul>
+        <% jobslist.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :title, class:'form-control', placeholder:"Title" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_area :description, class:'form-control', placeholder:"Description", rows:4 %>
+  </div>
+
+  <div>
+    <%= form.submit "Update", class:"btn btn-dark" %>
+  </div>
+<% end %>

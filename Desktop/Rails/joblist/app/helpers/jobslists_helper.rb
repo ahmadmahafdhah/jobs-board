@@ -1,0 +1,2 @@
+module JobslistsHelper
+end

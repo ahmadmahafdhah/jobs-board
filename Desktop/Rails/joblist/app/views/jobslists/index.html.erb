@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th class="text-center">Details</th>
+      <% if current_user && current_user.admin %>
+        <th class="text-center">✒</th>
+        <th class="text-center">✘</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobslists.each do |jobslist| %>
+      <tr>
+        <td><%= jobslist.title %></td>
+        <td class="text-center"><%= link_to "Show", jobslist, class:"btn btn-dark" %></td>
+        <% if current_user && current_user.admin %>
+          <td class="text-center"><%= link_to "Edit", edit_jobslist_path(jobslist), class:"btn btn-dark" %></td>
+          <td class="text-center"><%= button_to "Delete", jobslist, method: :delete, confirm: "Are you sure?", class:"btn btn-dark" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if current_user && current_user.admin %>
+  <%= link_to "New job", new_jobslist_path, class:"btn btn-dark" %>
+<% end %>

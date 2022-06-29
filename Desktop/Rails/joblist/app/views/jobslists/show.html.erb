@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <%= render @jobslist %>
+  <% if current_user && current_user.admin %>
+    <%= link_to "Back", jobslists_path, class:"btn btn-dark" %>
+    <%= link_to "Edit", edit_jobslist_path(@jobslist), class:"btn btn-dark" %>
+    <p></p>
+    <%= button_to "Delete", @jobslist, method: :delete, class:"btn btn-light" %>
+  <% elsif current_user %>
+    <%= link_to "Back", jobslists_path, class:"btn btn-dark" %>
+    <%= link_to "Apply", new_jobapplication_path, class:"btn btn-dark" %>
+  <% end %>
+</div>

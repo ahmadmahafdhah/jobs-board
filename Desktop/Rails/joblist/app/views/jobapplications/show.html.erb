@@ -1,0 +1,8 @@
+<%= render @jobapplication %>
+
+<div>
+  <%= link_to "Edit this jobapplication", edit_jobapplication_path(@jobapplication) %> |
+  <%= link_to "Back to jobapplications", jobapplications_path %>
+
+  <%= button_to "Destroy this jobapplication", @jobapplication, method: :delete %>
+</div>
